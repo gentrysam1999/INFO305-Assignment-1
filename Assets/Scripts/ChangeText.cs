@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class ChangeText : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject cameraObj;
+    private string camPos;
+    public bool found = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        camera = GameObject.Find("Main Camera");
+        cameraObj = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.GetComponent<TextMesh>().text = (camera.transform.position.ToString());
+        camPos = cameraObj.transform.position.ToString();
+        this.gameObject.GetComponent<TextMesh>().text = (camPos + "\nFound = "+ found);
+    }
+
+    public void Demo()
+    {
+        found = true;
     }
 }
