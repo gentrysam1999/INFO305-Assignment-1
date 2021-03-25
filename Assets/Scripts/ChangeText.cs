@@ -8,6 +8,10 @@ public class ChangeText : MonoBehaviour
     private string camPos;
     public bool found = false;
     public string allCamPos;
+    private string camPosX;
+    public string allCamPosX;
+    private string camPosY;
+    public string allCamPosY;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +23,14 @@ public class ChangeText : MonoBehaviour
     void Update()
     {
         camPos = cameraObj.transform.position.ToString();
+        camPosX = cameraObj.transform.position.x.ToString();
+        camPosY = cameraObj.transform.position.y.ToString();
         allCamPos += (camPos+"\n");
+        allCamPosX += (camPosX + "\n");
+        allCamPosY += (camPosY + "\n");
+
         this.gameObject.GetComponent<TextMesh>().text = (camPos + "\nFound = "+ found);
-        this.gameObject.GetComponent<RecordData>().WriteData("test.txt", allCamPos);
+
     }
 
     public void Demo()
@@ -32,5 +41,8 @@ public class ChangeText : MonoBehaviour
     public void ButtonTest()
     {
         Debug.Log("button clicked");
+        this.gameObject.GetComponent<RecordData>().WriteData("test.txt", allCamPos);
+        this.gameObject.GetComponent<RecordData>().WriteData("testX.txt", allCamPosX);
+        this.gameObject.GetComponent<RecordData>().WriteData("testY.txt", allCamPosY);
     }
 }
