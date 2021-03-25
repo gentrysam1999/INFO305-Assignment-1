@@ -18,7 +18,7 @@ public class ChangeText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camPos = cameraObj.transform.position.ToString();
+        camPos = cameraObj.transform.position.ToString("F4");
         allCamPos += (camPos+"\n");
         this.gameObject.GetComponent<TextMesh>().text = (camPos + "\nFound = "+ found);
         this.gameObject.GetComponent<RecordData>().WriteData("test.txt", allCamPos);
@@ -32,5 +32,6 @@ public class ChangeText : MonoBehaviour
     public void ButtonTest()
     {
         Debug.Log("button clicked");
+
     }
 }
