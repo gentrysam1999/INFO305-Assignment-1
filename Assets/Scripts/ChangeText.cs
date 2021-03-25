@@ -41,8 +41,5 @@ public class ChangeText : MonoBehaviour
     public void ButtonTest()
     {
         Debug.Log("button clicked");
-        this.gameObject.GetComponent<RecordData>().WriteData("test.txt", allCamPos);
-        this.gameObject.GetComponent<RecordData>().WriteData("testX.txt", allCamPosX);
-        this.gameObject.GetComponent<RecordData>().WriteData("testY.txt", allCamPosY);
     }
 }
