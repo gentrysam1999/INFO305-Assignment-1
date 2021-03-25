@@ -28,4 +28,9 @@ public class ChangeText : MonoBehaviour
     {
         found = true;
     }
+
+    public void ButtonTest()
+    {
+        Debug.Log("button clicked");
+    }
 }
