@@ -49,5 +49,6 @@ public class ChangeText : MonoBehaviour
         this.gameObject.GetComponent<RecordData>().WriteData("testX.txt", allCamPosX);
         this.gameObject.GetComponent<RecordData>().WriteData("testY.txt", allCamPosY);
         this.gameObject.GetComponent<RecordData>().WriteData("testZ.txt", allCamPosZ);
+        this.gameObject.GetComponent<RecordData>().WriteData("test.csv", allCamPosX + "," + allCamPosZ, "," + allCamPosZ + "\n");
     }
 }
