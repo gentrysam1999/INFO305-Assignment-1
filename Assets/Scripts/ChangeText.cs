@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeText : MonoBehaviour
 {
-    public GameObject cameraObj;
+    private GameObject cameraObj;
     private string camPos;
     public bool found = false;
     public string allCamPos;
@@ -44,7 +44,7 @@ public class ChangeText : MonoBehaviour
 
     public void ButtonTest()
     {
-        Debug.Log("button clicked");
+        //Debug.Log("button clicked");
         this.gameObject.GetComponent<RecordData>().WriteData("test.txt", allCamPos);
         this.gameObject.GetComponent<RecordData>().WriteData("testX.txt", allCamPosX);
         this.gameObject.GetComponent<RecordData>().WriteData("testY.txt", allCamPosY);
