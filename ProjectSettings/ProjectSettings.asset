@@ -639,7 +639,7 @@ PlayerSettings:
       OfflineMapsManagement: False
       PhoneCall: False
       PhoneCallHistoryPublic: False
-      PicturesLibrary: False
+      PicturesLibrary: True
       PointOfService: False
       PrivateNetworkClientServer: False
       Proximity: False
