@@ -55,7 +55,7 @@ public class RunTest : MonoBehaviour
             camRotX = this.gameObject.transform.rotation.x.ToString();
             camRotY = this.gameObject.transform.rotation.y.ToString();
             camRotZ = this.gameObject.transform.rotation.z.ToString();
-            allCamPosCsv += (camPosX + "," + camPosY + "," + camPosZ + "," + camRotX + "," + camRotY + "," + camRotZ +",\n");
+            allCamPosCsv += (timer.ToString() + "," + camPosX + "," + camPosY + "," + camPosZ + "," + camRotX + "," + camRotY + "," + camRotZ +",\n");
 
             tarPosX = imageTarget.transform.position.x.ToString();
             tarPosY = imageTarget.transform.position.y.ToString();
@@ -63,7 +63,7 @@ public class RunTest : MonoBehaviour
             tarRotX = imageTarget.transform.rotation.x.ToString();
             tarRotY = imageTarget.transform.rotation.y.ToString();
             tarRotZ = imageTarget.transform.rotation.z.ToString();
-            allTarPosCsv += (tarPosX + "," + tarPosY + "," + tarPosZ + "," + tarRotX + "," + tarRotY + "," + tarRotZ +",\n");
+            allTarPosCsv += (timer.ToString() + "," + tarPosX + "," + tarPosY + "," + tarPosZ + "," + tarRotX + "," + tarRotY + "," + tarRotZ +",\n");
             
 
             Pose headPose = new Pose(this.gameObject.transform.position, this.gameObject.transform.rotation);
@@ -76,7 +76,7 @@ public class RunTest : MonoBehaviour
             relRotX = poseRelative.rotation.x.ToString();
             relRotY = poseRelative.rotation.y.ToString();
             relRotZ = poseRelative.rotation.z.ToString();
-            allRelPosCsv += (relPosX + "," + relPosY + "," + relPosZ + "," + relRotX + "," + relRotY + "," + relRotZ +",\n");
+            allRelPosCsv += (timer.ToString() + "," + relPosX + "," + relPosY + "," + relPosZ + "," + relRotX + "," + relRotY + "," + relRotZ +",\n");
 
             textObj.GetComponent<TextMesh>().text = (timer.ToString());
         }
