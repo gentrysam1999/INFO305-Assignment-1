@@ -10,6 +10,8 @@ public class RunTest : MonoBehaviour
     private string camPosZ;
     private string allCamPosCsv;
     private bool testing = false;
+    private float timer = 0.0f;
+    private float waitTime = 5.0f;
     //private var startTime = 0;
     //private var timeTaken = 0;
     // Start is called before the first frame update
@@ -21,20 +23,23 @@ public class RunTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //camPosX = this.gameObject.transform.position.x.ToString();
         //camPosY = this.gameObject.transform.position.y.ToString();
         //camPosZ = this.gameObject.transform.position.z.ToString();
-        if (testing == true)
+        while (testing == true)
         {
-            var startTime = Time.deltaTime;
-            var timeTaken = Time.deltaTime - startTime;
-            while (timeTaken <= 8)
+            timer += Time.deltaTime;
+            if (timer <= waitTime)
             {
                 //allCamPosCsv += (camPosX + "," + camPosY + "," + camPosZ + ",\n");
-                Debug.Log(timeTaken);
-                timeTaken = Time.deltaTime - startTime;
+                Debug.Log(timer);
             }
-            testing = false;
+            else
+            {
+                timer = 0.0f;
+                testing = false;
+            }                    
         }
     }
     
@@ -42,8 +47,9 @@ public class RunTest : MonoBehaviour
     {
         //Debug.Log("button clicked");
         testing = true;
-        
+
         //this.gameObject.GetComponent<RecordData>().WriteData("test.csv", allCamPosCsv);  
+        
     }
 
 }

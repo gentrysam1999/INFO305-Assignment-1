@@ -17,6 +17,6 @@ public class PoseFinder : MonoBehaviour
         Pose poseThis = new Pose(this.gameObject.transform.position, this.gameObject.transform.rotation);
         Pose poseThat = new Pose(otherObject.transform.position, otherObject.transform.rotation);
         Pose poseRelative = this.gameObject.GetComponent<RelativePose>().ComputeRelativePose(poseThis, poseThat);
-        Debug.Log(poseRelative);
+        //Debug.Log(poseRelative);
     }
 }
