@@ -24,20 +24,21 @@ public class RunTest : MonoBehaviour
     void Update()
     {
         
-        //camPosX = this.gameObject.transform.position.x.ToString();
-        //camPosY = this.gameObject.transform.position.y.ToString();
-        //camPosZ = this.gameObject.transform.position.z.ToString();
+        camPosX = this.gameObject.transform.position.x.ToString();
+        camPosY = this.gameObject.transform.position.y.ToString();
+        camPosZ = this.gameObject.transform.position.z.ToString();
         while (testing == true)
         {
             timer += Time.deltaTime;
             if (timer <= waitTime)
             {
-                //allCamPosCsv += (camPosX + "," + camPosY + "," + camPosZ + ",\n");
-                Debug.Log(timer);
+                allCamPosCsv += (camPosX + "," + camPosY + "," + camPosZ + ",\n");
+                //Debug.Log(timer);
             }
             else
             {
                 timer = 0.0f;
+                this.gameObject.GetComponent<RecordData>().WriteData("test.csv", allCamPosCsv);
                 testing = false;
             }                    
         }
@@ -46,9 +47,7 @@ public class RunTest : MonoBehaviour
     public void Test()
     {
         //Debug.Log("button clicked");
-        testing = true;
-
-        //this.gameObject.GetComponent<RecordData>().WriteData("test.csv", allCamPosCsv);  
+        testing = true;  
         
     }
 
