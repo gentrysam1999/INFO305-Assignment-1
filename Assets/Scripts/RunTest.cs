@@ -49,7 +49,7 @@ public class RunTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         timer += Time.deltaTime;
         //Debug.Log(timer);
