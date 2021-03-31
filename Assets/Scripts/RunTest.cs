@@ -7,13 +7,20 @@ public class RunTest : MonoBehaviour
     public GameObject textObj;
     public GameObject zeroPoint;
     public GameObject imageTarget;
-    
+
+    private float testNum = 0;
+
+    private Vector3 camAngle;
+    private Vector3 tarAngle; 
+    private Vector3 relAngle;
+
     private string camPosX;
     private string camPosY;
     private string camPosZ;
     private string camRotX;
     private string camRotY;
     private string camRotZ;
+    
     private string allCamPosCsv;
 
     private string tarPosX;
@@ -52,17 +59,19 @@ public class RunTest : MonoBehaviour
             camPosX = this.gameObject.transform.position.x.ToString();
             camPosY = this.gameObject.transform.position.y.ToString();
             camPosZ = this.gameObject.transform.position.z.ToString();
-            camRotX = this.gameObject.transform.rotation.x.ToString();
-            camRotY = this.gameObject.transform.rotation.y.ToString();
-            camRotZ = this.gameObject.transform.rotation.z.ToString();
+            camAngle = this.gameObject.transform.rotation.eulerAngles;
+            camRotX = camAngle.x.ToString();
+            camRotY = camAngle.y.ToString();
+            camRotZ = camAngle.z.ToString();
             allCamPosCsv += (timer.ToString() + "," + camPosX + "," + camPosY + "," + camPosZ + "," + camRotX + "," + camRotY + "," + camRotZ +",\n");
 
             tarPosX = imageTarget.transform.position.x.ToString();
             tarPosY = imageTarget.transform.position.y.ToString();
             tarPosZ = imageTarget.transform.position.z.ToString();
-            tarRotX = imageTarget.transform.rotation.x.ToString();
-            tarRotY = imageTarget.transform.rotation.y.ToString();
-            tarRotZ = imageTarget.transform.rotation.z.ToString();
+            tarAngle = imageTarget.transform.rotation.eulerAngles;
+            tarRotX = tarAngle.x.ToString();
+            tarRotY = tarAngle.y.ToString();
+            tarRotZ = tarAngle.z.ToString();
             allTarPosCsv += (timer.ToString() + "," + tarPosX + "," + tarPosY + "," + tarPosZ + "," + tarRotX + "," + tarRotY + "," + tarRotZ +",\n");
             
 
@@ -73,18 +82,19 @@ public class RunTest : MonoBehaviour
             relPosX = poseRelative.position.x.ToString();
             relPosY = poseRelative.position.y.ToString();
             relPosZ = poseRelative.position.z.ToString();
-            relRotX = poseRelative.rotation.x.ToString();
-            relRotY = poseRelative.rotation.y.ToString();
-            relRotZ = poseRelative.rotation.z.ToString();
+            relAngle = poseRelative.rotation.eulerAngles;
+            relRotX = relAngle.x.ToString();
+            relRotY = relAngle.y.ToString();
+            relRotZ = relAngle.z.ToString();
             allRelPosCsv += (timer.ToString() + "," + relPosX + "," + relPosY + "," + relPosZ + "," + relRotX + "," + relRotY + "," + relRotZ +",\n");
 
             textObj.GetComponent<TextMesh>().text = (timer.ToString());
         }
         else if (timer>waitTime & testing ==true)
         {
-            this.gameObject.GetComponent<RecordData>().WriteData("HeadsetPose.csv", allCamPosCsv);
-            this.gameObject.GetComponent<RecordData>().WriteData("TargetPose.csv", allTarPosCsv);
-            this.gameObject.GetComponent<RecordData>().WriteData("RelativePose.csv", allRelPosCsv);
+            this.gameObject.GetComponent<RecordData>().WriteData("HeadsetPose"+ testNum +".csv", allCamPosCsv);
+            this.gameObject.GetComponent<RecordData>().WriteData("TargetPose" + testNum + ".csv", allTarPosCsv);
+            this.gameObject.GetComponent<RecordData>().WriteData("RelativePose" + testNum + ".csv", allRelPosCsv);
             testing = false;
         }
         else
@@ -96,6 +106,7 @@ public class RunTest : MonoBehaviour
     public void Test()
     {
         //Debug.Log("button clicked");
+        testNum += 1;
         testing = true;  
         
     }
