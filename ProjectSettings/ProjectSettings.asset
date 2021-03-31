@@ -657,7 +657,7 @@ PlayerSettings:
       WebCam: True
   metroTargetDeviceFamilies:
     Desktop: False
-    Holographic: False
+    Holographic: True
     IoT: False
     IoTHeadless: False
     Mobile: False
