@@ -95,6 +95,9 @@ public class RunTest : MonoBehaviour
             this.gameObject.GetComponent<RecordData>().WriteData("HeadsetPose"+ testNum +".csv", allCamPosCsv);
             this.gameObject.GetComponent<RecordData>().WriteData("TargetPose" + testNum + ".csv", allTarPosCsv);
             this.gameObject.GetComponent<RecordData>().WriteData("RelativePose" + testNum + ".csv", allRelPosCsv);
+            allCamPosCsv = "";
+            allTarPosCsv = "";
+            allRelPosCsv = "";
             testing = false;
         }
         else
